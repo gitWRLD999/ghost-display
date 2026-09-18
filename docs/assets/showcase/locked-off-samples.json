@@ -1,0 +1,158 @@
+[
+  {
+    "elapsedSeconds": 0.71,
+    "locked": true,
+    "physicalScreenOff": true,
+    "panels": [
+      "OFF/OFF",
+      "OFF/OFF"
+    ],
+    "displayId": 9,
+    "displayGroupId": 7,
+    "state": "ON",
+    "frameSequence": 775
+  },
+  {
+    "elapsedSeconds": 31.43,
+    "locked": true,
+    "physicalScreenOff": true,
+    "panels": [
+      "OFF/OFF",
+      "OFF/OFF"
+    ],
+    "displayId": 9,
+    "displayGroupId": 7,
+    "state": "ON",
+    "frameSequence": 837
+  },
+  {
+    "elapsedSeconds": 62.09,
+    "locked": true,
+    "physicalScreenOff": true,
+    "panels": [
+      "OFF/OFF",
+      "OFF/OFF"
+    ],
+    "displayId": 9,
+    "displayGroupId": 7,
+    "state": "ON",
+    "frameSequence": 898
+  },
+  {
+    "elapsedSeconds": 92.86,
+    "locked": true,
+    "physicalScreenOff": true,
+    "panels": [
+      "OFF/OFF",
+      "OFF/OFF"
+    ],
+    "displayId": 9,
+    "displayGroupId": 7,
+    "state": "ON",
+    "frameSequence": 959
+  },
+  {
+    "elapsedSeconds": 123.34,
+    "locked": true,
+    "physicalScreenOff": true,
+    "panels": [
+      "OFF/OFF",
+      "OFF/OFF"
+    ],
+    "displayId": 9,
+    "displayGroupId": 7,
+    "state": "ON",
+    "frameSequence": 1020
+  },
+  {
+    "elapsedSeconds": 154.69,
+    "locked": true,
+    "physicalScreenOff": true,
+    "panels": [
+      "OFF/OFF",
+      "OFF/OFF"
+    ],
+    "displayId": 9,
+    "displayGroupId": 7,
+    "state": "ON",
+    "frameSequence": 1083
+  },
+  {
+    "elapsedSeconds": 185.4,
+    "locked": true,
+    "physicalScreenOff": true,
+    "panels": [
+      "OFF/OFF",
+      "OFF/OFF"
+    ],
+    "displayId": 9,
+    "displayGroupId": 7,
+    "state": "ON",
+    "frameSequence": 1144
+  },
+  {
+    "elapsedSeconds": 216.26,
+    "locked": true,
+    "physicalScreenOff": true,
+    "panels": [
+      "OFF/OFF",
+      "OFF/OFF"
+    ],
+    "displayId": 9,
+    "displayGroupId": 7,
+    "state": "ON",
+    "frameSequence": 1206
+  },
+  {
+    "elapsedSeconds": 247.05,
+    "locked": true,
+    "physicalScreenOff": true,
+    "panels": [
+      "OFF/OFF",
+      "OFF/OFF"
+    ],
+    "displayId": 9,
+    "displayGroupId": 7,
+    "state": "ON",
+    "frameSequence": 1267
+  },
+  {
+    "elapsedSeconds": 277.84,
+    "locked": true,
+    "physicalScreenOff": true,
+    "panels": [
+      "OFF/OFF",
+      "OFF/OFF"
+    ],
+    "displayId": 9,
+    "displayGroupId": 7,
+    "state": "ON",
+    "frameSequence": 1328
+  },
+  {
+    "elapsedSeconds": 308.94,
+    "locked": true,
+    "physicalScreenOff": true,
+    "panels": [
+      "OFF/OFF",
+      "OFF/OFF"
+    ],
+    "displayId": 9,
+    "displayGroupId": 7,
+    "state": "ON",
+    "frameSequence": 1390
+  },
+  {
+    "elapsedSeconds": 339.68,
+    "locked": true,
+    "physicalScreenOff": true,
+    "panels": [
+      "OFF/OFF",
+      "OFF/OFF"
+    ],
+    "displayId": 9,
+    "displayGroupId": 7,
+    "state": "ON",
+    "frameSequence": 1452
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "seconds": 3.36,
+    "running": false,
+    "displayId": -1,
+    "virtualDeviceId": null,
+    "associationId": null
+  },
+  {
+    "seconds": 6.75,
+    "running": true,
+    "displayId": 10,
+    "virtualDeviceId": 4,
+    "associationId": 7
+  }
+]

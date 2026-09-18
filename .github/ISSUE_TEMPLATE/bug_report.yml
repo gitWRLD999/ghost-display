@@ -1,0 +1,28 @@
+name: Device or command failure
+description: Report a reproducible Ghost failure with device context.
+title: '[Bug] '
+body:
+  - type: input
+    id: device
+    attributes:
+      label: Device and firmware
+      placeholder: Galaxy Z Fold7, Android 16, One UI 8.5
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps and expected behavior
+      description: Include the command and whether the physical display was unlocked, locked, or off.
+    validations:
+      required: true
+  - type: textarea
+    id: status
+    attributes:
+      label: ghostctl status --json
+      render: json
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Share only relevant screenshots or log excerpts. Remove account names, URLs, and device identifiers.

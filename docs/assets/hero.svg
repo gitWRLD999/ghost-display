@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="460" viewBox="0 0 1280 460" role="img" aria-label="Ghost Display — a private Android display, ready for people and agents">
+ <defs>
+  <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1420"/><stop offset="1" stop-color="#142e39"/></linearGradient>
+  <linearGradient id="line" x2="1" y2="1"><stop stop-color="#72e3c3"/><stop offset="1" stop-color="#80bafa"/></linearGradient>
+  <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#b0d6e8" stroke-opacity=".055"/></pattern>
+ </defs>
+ <rect width="1280" height="460" rx="24" fill="url(#bg)"/><rect width="1280" height="460" rx="24" fill="url(#grid)"/>
+ <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif">
+  <rect x="64" y="62" width="195" height="30" rx="15" fill="#72e3c3" fill-opacity=".1" stroke="#72e3c3" stroke-opacity=".3"/>
+  <text x="84" y="82" fill="#85eacf" font-size="12" font-weight="700" letter-spacing="2">ANDROID · SHIZUKU</text>
+  <text x="60" y="176" fill="#eff9fb" font-size="70" font-weight="700" letter-spacing="-3">Ghost Display</text>
+  <text x="64" y="225" fill="#c5dbe5" font-size="25">Your phone. Another workspace.</text>
+  <text x="64" y="271" fill="#94acba" font-size="19">An invisible display with its own input,</text>
+  <text x="64" y="299" fill="#94acba" font-size="19">a native viewer, and a precise agent interface.</text>
+  <text x="65" y="386" fill="#72e3c3" font-size="15" font-family="ui-monospace,Consolas,monospace">START  →  INSPECT  →  ACT  →  VERIFY</text>
+  <g transform="translate(864 52)">
+   <rect width="240" height="355" rx="28" fill="#09121c" stroke="url(#line)" stroke-width="2"/>
+   <rect x="14" y="43" width="212" height="256" rx="13" fill="#153046"/>
+   <rect x="91" y="18" width="58" height="5" rx="2.5" fill="#4a6676"/>
+   <path d="M77 180v-44a43 43 0 0186 0v69l-15-11-14 11-14-11-14 11-14-11-15 11z" fill="none" stroke="url(#line)" stroke-width="4" stroke-linejoin="round"/>
+   <circle cx="105" cy="137" r="5" fill="#b9f6e5"/><circle cx="138" cy="137" r="5" fill="#b9f6e5"/>
+   <text x="120" y="257" text-anchor="middle" fill="#98bacb" font-size="12" font-family="ui-monospace,Consolas,monospace">1200 × 1920</text>
+   <circle cx="46" cy="327" r="4" fill="#72e3c3"/><text x="61" y="332" fill="#c5dbe5" font-size="13">Running invisibly</text>
+  </g>
+ </g>
+ <path d="M797 185h39m-7-7 8 7-8 7M1132 273h48m-8-7 8 7-8 7" fill="none" stroke="#72e3c3" stroke-opacity=".45" stroke-width="2"/>
+</svg>

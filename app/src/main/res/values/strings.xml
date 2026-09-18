@@ -1,0 +1,4 @@
+<resources>
+  <string name="app_name">Ghost A11y</string>
+  <string name="accessibility_description">Lets OpenClaw control the ghost display without using the main keyboard.</string>
+</resources>

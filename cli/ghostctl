@@ -1,0 +1,5 @@
+#!/system/bin/sh
+APK=$(pm path com.vertex.ghost | head -n 1 | cut -d: -f2)
+if [ -z "$APK" ]; then printf '{"ok":false,"error":"Ghost_not_installed"}\n'; exit 1; fi
+export CLASSPATH="$APK"
+exec app_process /system/bin com.vertex.ghost.GhostCtl "$@"

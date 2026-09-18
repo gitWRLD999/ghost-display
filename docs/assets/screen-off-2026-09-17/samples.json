@@ -1,0 +1,158 @@
+[
+  {
+    "elapsedSeconds": 0.15,
+    "locked": true,
+    "physicalScreenOff": true,
+    "fixture": {
+      "displayId": 7,
+      "text": "",
+      "clicks": 0,
+      "longPresses": 0,
+      "scrollY": 0,
+      "seconds": 5817
+    }
+  },
+  {
+    "elapsedSeconds": 30.4,
+    "locked": true,
+    "physicalScreenOff": true,
+    "fixture": {
+      "displayId": 7,
+      "text": "",
+      "clicks": 0,
+      "longPresses": 0,
+      "scrollY": 0,
+      "seconds": 5847
+    }
+  },
+  {
+    "elapsedSeconds": 60.55,
+    "locked": true,
+    "physicalScreenOff": true,
+    "fixture": {
+      "displayId": 7,
+      "text": "",
+      "clicks": 0,
+      "longPresses": 0,
+      "scrollY": 0,
+      "seconds": 5877
+    }
+  },
+  {
+    "elapsedSeconds": 90.69,
+    "locked": true,
+    "physicalScreenOff": true,
+    "fixture": {
+      "displayId": 7,
+      "text": "",
+      "clicks": 0,
+      "longPresses": 0,
+      "scrollY": 0,
+      "seconds": 5907
+    }
+  },
+  {
+    "elapsedSeconds": 120.84,
+    "locked": true,
+    "physicalScreenOff": true,
+    "fixture": {
+      "displayId": 7,
+      "text": "",
+      "clicks": 0,
+      "longPresses": 0,
+      "scrollY": 0,
+      "seconds": 5937
+    }
+  },
+  {
+    "elapsedSeconds": 150.99,
+    "locked": true,
+    "physicalScreenOff": true,
+    "fixture": {
+      "displayId": 7,
+      "text": "",
+      "clicks": 0,
+      "longPresses": 0,
+      "scrollY": 0,
+      "seconds": 5967
+    }
+  },
+  {
+    "elapsedSeconds": 181.14,
+    "locked": true,
+    "physicalScreenOff": true,
+    "fixture": {
+      "displayId": 7,
+      "text": "",
+      "clicks": 0,
+      "longPresses": 0,
+      "scrollY": 0,
+      "seconds": 5997
+    }
+  },
+  {
+    "elapsedSeconds": 211.28,
+    "locked": true,
+    "physicalScreenOff": true,
+    "fixture": {
+      "displayId": 7,
+      "text": "",
+      "clicks": 0,
+      "longPresses": 0,
+      "scrollY": 0,
+      "seconds": 6027
+    }
+  },
+  {
+    "elapsedSeconds": 241.42,
+    "locked": true,
+    "physicalScreenOff": true,
+    "fixture": {
+      "displayId": 7,
+      "text": "",
+      "clicks": 0,
+      "longPresses": 0,
+      "scrollY": 0,
+      "seconds": 6059
+    }
+  },
+  {
+    "elapsedSeconds": 271.55,
+    "locked": true,
+    "physicalScreenOff": true,
+    "fixture": {
+      "displayId": 7,
+      "text": "",
+      "clicks": 0,
+      "longPresses": 0,
+      "scrollY": 0,
+      "seconds": 6089
+    }
+  },
+  {
+    "elapsedSeconds": 301.7,
+    "locked": true,
+    "physicalScreenOff": true,
+    "fixture": {
+      "displayId": 7,
+      "text": "",
+      "clicks": 0,
+      "longPresses": 0,
+      "scrollY": 0,
+      "seconds": 6119
+    }
+  },
+  {
+    "elapsedSeconds": 331.83,
+    "locked": true,
+    "physicalScreenOff": true,
+    "fixture": {
+      "displayId": 7,
+      "text": "",
+      "clicks": 0,
+      "longPresses": 0,
+      "scrollY": 0,
+      "seconds": 6149
+    }
+  }
+]

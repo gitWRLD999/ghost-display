@@ -1,0 +1,39 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+  <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+  <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+  <uses-permission android:name="moe.shizuku.manager.permission.API_V23" />
+  <application android:label="Ghost Display" android:theme="@style/AppTheme" android:allowBackup="false" android:supportsRtl="true">
+    <meta-data android:name="moe.shizuku.client.V3_SUPPORT" android:value="true" />
+    <provider android:name="rikka.shizuku.ShizukuProvider" android:authorities="${applicationId}.shizuku" android:multiprocess="false" android:exported="true" android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" />
+    <activity android:name=".GhostViewerActivity" android:exported="true" android:taskAffinity="com.vertex.ghost.viewer" android:resizeableActivity="true" android:windowSoftInputMode="adjustResize">
+      <intent-filter><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LAUNCHER" /></intent-filter>
+    </activity>
+    <activity android:name=".GhostTestActivity" android:exported="true" android:taskAffinity="com.vertex.ghost.test" android:resizeableActivity="true" />
+    <activity android:name=".GhostBlankActivity" android:exported="true" android:taskAffinity="com.vertex.ghost.home" android:resizeableActivity="true" />
+    <activity android:name=".GhostWebActivity" android:exported="true" android:taskAffinity="com.vertex.ghost.web" android:resizeableActivity="true" />
+    <service android:name=".GhostHostService" android:exported="false" android:foregroundServiceType="specialUse">
+      <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="User-requested headless display lifecycle and Shizuku recovery" />
+    </service>
+    <service android:name=".GhostTileService" android:label="Ghost Viewer" android:icon="@android:drawable/ic_menu_view" android:exported="true" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+      <intent-filter><action android:name="android.service.quicksettings.action.QS_TILE" /></intent-filter>
+    </service>
+    <receiver android:name=".GhostCommandReceiver" android:exported="true" android:permission="android.permission.INTERACT_ACROSS_USERS_FULL">
+      <intent-filter>
+        <action android:name="com.vertex.ghost.HEADLESS_START" /><action android:name="com.vertex.ghost.HEADLESS_STOP" />
+        <action android:name="com.vertex.ghost.HEADLESS_STATUS" /><action android:name="com.vertex.ghost.HEADLESS_SCREENSHOT" />
+        <action android:name="com.vertex.ghost.STATUS" /><action android:name="com.vertex.ghost.OPEN_APP" />
+        <action android:name="com.vertex.ghost.OPEN_COMPONENT" /><action android:name="com.vertex.ghost.OPEN_URL" />
+        <action android:name="com.vertex.ghost.CLICK" /><action android:name="com.vertex.ghost.SWIPE" />
+        <action android:name="com.vertex.ghost.SET_TEXT" /><action android:name="com.vertex.ghost.FOCUS" /><action android:name="com.vertex.ghost.DUMP" />
+      </intent-filter>
+    </receiver>
+    <receiver android:name=".GhostBootReceiver" android:exported="false">
+      <intent-filter><action android:name="android.intent.action.BOOT_COMPLETED" /><action android:name="android.intent.action.MY_PACKAGE_REPLACED" /></intent-filter>
+    </receiver>
+  </application>
+</manifest>

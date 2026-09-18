@@ -1,0 +1,13 @@
+#!/data/data/com.termux/files/usr/bin/bash
+set -eu
+# Pass exact arguments through rish's remote shell, including spaces and apostrophes.
+quote() { printf "'%s'" "$(printf '%s' "$1" | sed "s/'/'\\\\''/g")"; }
+if [ -z "${RISH:-}" ]; then
+  if command -v rish >/dev/null 2>&1; then RISH=rish
+  elif [ -x "$HOME/.local/bin/rish" ]; then RISH="$HOME/.local/bin/rish"
+  else printf '{"ok":false,"error":"Set_RISH_to_your_rish_script"}\n'; exit 1
+  fi
+fi
+command='sh /data/local/tmp/ghostctl'
+for arg in "$@"; do command="$command $(quote "$arg")"; done
+exec "$RISH" -c "$command"
