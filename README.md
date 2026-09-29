@@ -52,6 +52,11 @@ flowchart LR
 
 The second display uses your existing Android apps. It is not a second Android installation or a separate account sandbox.
 
+Agents should start with the [operating protocol](docs/AGENT_PROTOCOL.md).
+The [experimental Artemis adapter](integrations/artemis/README.md) provides a
+Ghost-only action backend; its current validation status and runtime limitations
+are documented separately from the phone acceptance results.
+
 ## Get started
 
 1. Install the APK from the private [Releases page](https://github.com/gitWRLD999/ghost-display/releases).

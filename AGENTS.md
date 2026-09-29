@@ -2,6 +2,10 @@
 
 ## Operate
 
+Read [docs/AGENT_PROTOCOL.md](docs/AGENT_PROTOCOL.md) for concurrent human use,
+remote access, recovery, screenshot privacy and neutral acceptance testing.
+For Artemis integration, also read [integrations/artemis/README.md](integrations/artemis/README.md).
+
 1. **Start:** `ghostctl start`. Shizuku must already be available.
 2. **Inspect:** `ghostctl status --json`. Read the live `displayId`, dimensions, power state, and health fields. Never assume an ID persists across recovery.
 3. **See:** `ghostctl screenshot --out /sdcard/Download/ghost.png`, or use the PC wrapper with a local output path.
