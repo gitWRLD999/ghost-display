@@ -1,2 +1,6 @@
-pydantic>=2.7,<3
+pydantic==2.13.4
 Pillow>=10,<13
+# Match the SDK and schema/transport dependencies in the audited Artemis uv.lock.
+mcp==1.29.0
+anyio==4.14.2
+pydantic-settings==2.15.0

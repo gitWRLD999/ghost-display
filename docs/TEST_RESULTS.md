@@ -2,6 +2,9 @@
 
 **Status: Ghost 1.1.0-preview.1 is installed and passes the short secure-lock / screen-off test.** The VirtualDevice approach is integrated into the Shizuku UserService. This is not a claim of indefinite persistence or compatibility with every app.
 
+Additional agent/MCP and emulator checks are recorded in the [October 12 validation](VALIDATION_2026-10-12.md).
+They do not replace or extend the physical Fold 7 measurements below.
+
 The September 17 disposable probe established feasibility; its [historical results](EXPERIMENTS_2026-09-17.md) remain separate from the installed-backend results below.
 
 Test platform: Samsung Galaxy Z Fold7 SM-F966U, Android 16 / API 36, One UI 8.5, firmware build F966USQSCBZH3. Tests performed September 15–18, 2026. The phone was folded, using its cover display. No root, bootloader change, lock-security change, or Accessibility service was used.
@@ -43,7 +46,7 @@ Personal preview APK SHA-256: `3877885bc290615d97496d8817b1954730d6ac9c4d2760fd4
 | Native viewer | Pass | Portrait tap/text, landscape mapped tap/swipe, aspect-preserving display. |
 | Hide / reopen viewer | Pass | Same display and retained text, counter and scroll state. |
 | Termux / rish | Pass | Commands worked locally; apostrophe-containing text was preserved. |
-| Backend recovery and stop | Pending final release check | Results will be recorded before publishing the release. |
+| Backend recovery and stop | Not completed on this earlier build | Completed on the installed September 18 build in the table above. |
 
 The first nine checks are exercised by `scripts/smoke.ps1`. Viewer and rish checks used the same device and synthetic fixture. Raw system dumps and personal browser content are deliberately not published.
 

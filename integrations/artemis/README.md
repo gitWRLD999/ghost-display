@@ -4,10 +4,14 @@ This adapter directs Artemis's device actions to Ghost's independent display usi
 `ghostctl`. It does not change Ghost's Android application or install an Accessibility
 service on the phone. The first implementation uses screenshots without a UI tree.
 
-**Status, 2026-09-29:** 20 local tests pass, including validation against the actual
-upstream actuator manifest and result model. Full Artemis runtime, live phone input,
-MCP transport, and autonomous model tasks have **not** been tested. Do not run
-Artemis's default quickstart against a personal phone to test this adapter.
+**Status, 2026-10-12:** 73 local tests pass with no skips: 63 bridge/contract checks
+and ten tests using the real MCP client/server memory transport. The pinned upstream
+manifest, models, action server, action session, observation and wire handlers are
+exercised; unrelated runtime/controller/OCR imports are stubbed and device transport
+is simulated in these tests. Full Artemis startup, autonomous model tasks and remote
+Termux SSH operation remain untested. See [current validation](../../docs/VALIDATION_2026-10-12.md)
+for the separate Android emulator checks. Do not run Artemis's default quickstart
+against a personal phone to test this adapter.
 
 Upstream source audited: [google/artemis](https://github.com/google/artemis/tree/351ca8422f7b5b54e80a9c1ce03a222e02415b6b),
 commit `351ca8422f7b5b54e80a9c1ce03a222e02415b6b`.
@@ -29,9 +33,10 @@ and [configuration defaults](https://github.com/google/artemis/blob/351ca8422f7b
 
 ## Local validation
 
-Python 3.12+, Pydantic 2 and Pillow are sufficient for the contract tests. They load the
-upstream manifest/models directly, avoiding expensive Artemis package initialization.
-This validates the contract, not complete runtime integration.
+Python 3.12+ and the pinned [test dependencies](requirements-test.txt) run the complete
+suite, including MCP. Tests load pinned upstream code directly, avoiding expensive
+Artemis package initialization. This validates its action layer, not complete agent
+startup or provider/model execution. Pillow is also required by the read-only probe.
 
 Place a checkout of the pinned Artemis commit beside the Ghost repository, named
 `artemis-upstream`. From the Ghost repository root:
@@ -40,8 +45,11 @@ Place a checkout of the pinned Artemis commit beside the Ghost repository, named
 python -m unittest discover -s integrations/artemis/tests -v
 ```
 
-Without that checkout the five upstream contract tests skip; the fifteen bridge
-tests still run. A complete test report must record whether any tests skipped.
+Install dependencies with `python -m pip install -r integrations/artemis/requirements-test.txt`.
+Without that checkout upstream-dependent tests skip. The tests verify its exact
+commit; record any skips in a test report. MCP 1.29 currently emits a nonfatal
+`lifespan` annotation warning during setup; normal runs pass, while treating that
+third-party warning as an error fails MCP setup. The warning is not suppressed.
 
 ## Read-only live probe
 
@@ -80,8 +88,9 @@ validate_actuator(ctx.actuator)
 screen = await ctx.actuator.get_screen_data()  # Required before the first input.
 ```
 
-The upstream `build_action_server(ctx.actuator)` can expose this backend's supported
-actions. That server path still needs a full runtime/MCP smoke test. Do not substitute
+The upstream `build_action_server(ctx.actuator)` exposes this backend's supported
+actions. Its real MCP memory transport is tested with a simulated Ghost device;
+a complete live-device Artemis runner remains a separate gate. Do not substitute
 the default ADB server when the adapter fails.
 
 Before starting any Artemis process, set `ARTEMIS_KEEP_DEVICE_AWAKE=false` and
@@ -104,6 +113,8 @@ The default web mirror is not wired to Ghost by this adapter.
   dispatch multiple operations from one observation. There remains a status-to-command race because
   Ghost's current command protocol does not atomically accept an expected generation.
 - Input uses only Ghost CLI operations, with an explicit ADB serial or SSH endpoint.
+  An observed fresh display with `inputHealth=untested` permits its first targeted
+  action. Invalid health values and `no_frame` still block operation.
 - Sequences and captures serialize within one actuator. Use one operator/session
   per Ghost display; another client can still change its contents.
 - App launch requires a session allowlist. `com.vertex.ghost` launches the neutral
@@ -114,7 +125,8 @@ The default web mirror is not wired to Ghost by this adapter.
 - UI hierarchy access raises an explicit unavailable error. Upstream observation
   records `hierarchy_ok=False` while retaining the image; this path currently omits
   observation dimension fields, so the actuator updates `ctx.device` dimensions
-  directly. A full runtime test must verify this interaction. Upstream observation
+  directly. Tests execute the actual upstream observation function and verify this
+  interaction, with unrelated runtime imports stubbed. Upstream observation
   also persists frames through the data engine or its temporary screenshot directory;
   configure private storage and retention before real app tests.
 - Power/volume/global keys, force-stop, raw shell, physical viewer and video capture
@@ -128,10 +140,11 @@ The default web mirror is not wired to Ghost by this adapter.
    verification and concurrent normal physical-phone use.
 3. Screen-off phase: let the user lock the phone, then repeat Ghost fixture actions;
    separately record physical panels OFF and Ghost ON.
-4. Full runtime/MCP action-server test, then a bounded model task with no bypass
+4. Full live-device runner test, then a bounded model task with no bypass
    tools. Start with the neutral fixture before allowing a real app.
 
 An emulator is optional for runtime/schema tests. It cannot validate Samsung's
 physical-screen-off behavior. Use at most 2 GB guest RAM and 2 CPU cores initially,
 and stop the test emulator if host available RAM drops below 2 GB. No emulator was
-started in the 2026-09-29 local contract test session; available host RAM was 5.3 GB.
+started in the 2026-09-29 local contract test session; a fresh headless API 36 emulator
+was created for the separate 2026-10-12 validation.

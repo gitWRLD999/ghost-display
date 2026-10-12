@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import asyncio
+from io import BytesIO
 import json
 import shlex
 import struct
@@ -27,22 +28,28 @@ class CommandTransport:
 
     @classmethod
     def ssh(cls, executable: str, destination: str, port: int = 8022):
-        if not destination or destination.startswith("-") or not 1 <= port <= 65535:
+        if (not destination or destination.startswith("-")
+                or type(port) is not int or not 1 <= port <= 65535):
             raise ValueError("An explicit SSH destination and valid port are required")
         return cls([executable, "-T", "-o", "BatchMode=yes", "-o", "StrictHostKeyChecking=yes",
                     "-o", "ConnectTimeout=5", "-p", str(port), destination], "$HOME/bin/ghostctl")
 
     async def run(self, *args: str) -> bytes:
         remote = self.remote_prefix + " " + " ".join(shlex.quote(str(a)) for a in args)
-        proc = await asyncio.create_subprocess_exec(
-            *self.prefix, remote, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
+        try:
+            proc = await asyncio.create_subprocess_exec(
+                *self.prefix, remote, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
+        except OSError as exc:
+            raise GhostError("Transport could not start: " + str(exc)) from exc
         try:
             out, err = await asyncio.wait_for(proc.communicate(), 15)
-        except (TimeoutError, asyncio.CancelledError):
+        except (TimeoutError, asyncio.CancelledError, OSError) as exc:
             if proc.returncode is None:
                 proc.kill()
                 await proc.wait()
-            raise GhostError("Transport interrupted; command outcome unknown. Observe before retrying.")
+            if isinstance(exc, asyncio.CancelledError):
+                raise
+            raise GhostError("Transport interrupted; command outcome unknown. Observe before retrying.") from exc
         if proc.returncode:
             raise GhostError(err.decode("utf-8", errors="replace")[:1000] or "ghostctl failed")
         return out
@@ -64,8 +71,8 @@ class GhostSession:
                            "DPAD_LEFT", "DPAD_RIGHT", "DPAD_CENTER", "MOVE_HOME", "MOVE_END"})
 
     def __init__(self, transport, allowed_packages=(), max_actions: int = 40):
-        if max_actions < 1:
-            raise ValueError("max_actions must be positive")
+        if type(max_actions) is not int or max_actions < 1:
+            raise ValueError("max_actions must be a positive integer")
         self.transport = transport
         self.allowed_packages = frozenset(allowed_packages)
         self.max_actions = max_actions
@@ -76,6 +83,8 @@ class GhostSession:
     async def _json(self, *args):
         try:
             result = json.loads(await self.transport.run(*args))
+        except OSError as exc:
+            raise GhostError("Ghost transport failed; command outcome unknown. Observe before retrying.") from exc
         except (ValueError, TypeError) as exc:
             raise GhostError("Invalid Ghost response") from exc
         if not isinstance(result, dict) or result.get("ok") is not True:
@@ -91,7 +100,7 @@ class GhostSession:
             raise GhostError("Ghost display unavailable; physical display fallback is forbidden")
         if status.get("backendUid") != 2000 or status.get("state") != "ON":
             raise GhostError("Ghost must be ON with its shell-owned backend")
-        if status.get("captureHealth") != "ready" or status.get("inputHealth") != "ok":
+        if status.get("captureHealth") != "ready" or status.get("inputHealth") not in ("ok", "untested"):
             raise GhostError("Ghost capture/input is not ready")
         if any(type(status.get(k)) is not int or status[k] <= 0 for k in ("width", "height", "backendPid")):
             raise GhostError("Invalid Ghost geometry/backend identity")
@@ -110,11 +119,27 @@ class GhostSession:
             width, height = struct.unpack(">II", image[16:24])
             if (width, height) != after[2:4]:
                 raise GhostError("Screenshot geometry differs from Ghost status")
+            def validate_png():
+                from PIL import Image
+                # Check chunk integrity and then decode pixels. Header-only or
+                # corrupt captures must never authorize subsequent coordinates.
+                with Image.open(BytesIO(image)) as frame:
+                    frame.verify()
+                with Image.open(BytesIO(image)) as frame:
+                    frame.load()
+            try:
+                await asyncio.to_thread(validate_png)
+            except Exception as exc:
+                raise GhostError("Screenshot PNG could not be decoded") from exc
             self.observed = after
             return Observation(image, width, height, after[0], after)
 
     async def _ready(self, expected=None):
-        live = self.generation(await self.status())
+        try:
+            live = self.generation(await self.status())
+        except (GhostError, asyncio.CancelledError):
+            self.observed = None
+            raise
         if (self.observed if expected is None else expected) != live:
             self.observed = None
             raise GhostError("Observe Ghost first; previous coordinates are stale after recovery/resize")
@@ -153,6 +178,9 @@ class GhostSession:
     async def click_sequence(self, points, delay_ms=50):
         if not 1 <= len(points) <= 20 or type(delay_ms) is not int or not 0 <= delay_ms <= 2000:
             raise GhostError("Sequence requires 1..20 points and 0..2000 ms delay")
+        # Freeze coordinates before the first await; caller mutation cannot extend
+        # the reserved action count or change a target after validation.
+        points = tuple((x, y) for x, y in points)
         for x, y in points:
             self.pixel(x, 1000)
             self.pixel(y, 1000)

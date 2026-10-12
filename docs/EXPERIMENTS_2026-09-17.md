@@ -82,4 +82,4 @@ This establishes an architectural lead, not yet an installed Ghost fix. Integrat
 
 No APK build or installation was performed for these probes. The portable experiment build completed successfully with SDK 36 and the local JDK; the verifier passed PowerShell parsing and its panel-state regex matched both physical panels on this device.
 
-Raw diagnostics and browser screenshots remain local because they can contain unrelated device or browser information. Only synthetic screenshots and summarized results are suitable for the private project repository.
+Raw diagnostics and browser screenshots remain local because they can contain unrelated device or browser information. Only synthetic screenshots and summarized results are suitable for the project repository.

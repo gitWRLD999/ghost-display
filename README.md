@@ -3,7 +3,7 @@
 <p align="center">
   <img alt="Android 16" src="https://img.shields.io/badge/Android-16-72e3c3?style=flat-square&amp;labelColor=14202b">
   <img alt="Shizuku backend" src="https://img.shields.io/badge/Backend-Shizuku-80bafa?style=flat-square&amp;labelColor=14202b">
-  <img alt="Private repository" src="https://img.shields.io/badge/Visibility-private-c5dbe5?style=flat-square&amp;labelColor=14202b">
+  <img alt="Preview release" src="https://img.shields.io/badge/Status-preview-c5dbe5?style=flat-square&amp;labelColor=14202b">
   <a href="https://github.com/gitWRLD999/ghost-display/actions/workflows/android.yml"><img alt="Android build" src="https://github.com/gitWRLD999/ghost-display/actions/workflows/android.yml/badge.svg"></a>
 </p>
 
@@ -53,13 +53,15 @@ flowchart LR
 The second display uses your existing Android apps. It is not a second Android installation or a separate account sandbox.
 
 Agents should start with the [operating protocol](docs/AGENT_PROTOCOL.md).
+See the [October validation report](docs/VALIDATION_2026-10-12.md) and
+[focused device test commands](docs/DEVICE_CHECKS.md) for the latest checks.
 The [experimental Artemis adapter](integrations/artemis/README.md) provides a
 Ghost-only action backend; its current validation status and runtime limitations
 are documented separately from the phone acceptance results.
 
 ## Get started
 
-1. Install the APK from the private [Releases page](https://github.com/gitWRLD999/ghost-display/releases).
+1. Install the APK from the [Releases page](https://github.com/gitWRLD999/ghost-display/releases).
 2. Start Shizuku using your normal setup.
 3. Open **Ghost Display**, tap **Start**, and allow Shizuku access. Allow notifications for the viewer shortcut.
 4. Tap **Test** to try the controls, or launch an app with `ghostctl`.
@@ -163,4 +165,7 @@ docs/                Architecture, API, recovery, and measured test results
 AGENTS.md            Start → inspect → screenshot → act → verify → recover → stop
 ```
 
-This repository is private. No redistribution license has been selected. Signing keys, private app backups, full phone diagnostics, and device identifiers are intentionally excluded.
+The source and preview release are publicly available. No redistribution license has
+been selected. Signing keys, private app backups, full phone diagnostics, and device
+identifiers are intentionally excluded.
+Dependency and content attributions are listed in [third-party notices](THIRD_PARTY_NOTICES.md).

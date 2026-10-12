@@ -13,7 +13,11 @@ Android user: accounts, files, app processes and some single-instance tasks are 
    only within the user's authorized session. Do not stop/recreate an active display
    merely to initialize a tool.
 3. Confirm a positive `displayId`, `backendUid:2000`, positive dimensions,
-   `state:ON`, `captureHealth:ready` and `inputHealth:ok`.
+   `state:ON` and `captureHealth:ready`. `inputHealth:untested` is valid before
+   the first targeted action; subsequent input should report `ok`. Error states
+   remain blocking. If a newly created display has `no_frame`, explicitly open
+   Ghost's blank workspace with `ghostctl home` or its neutral test fixture,
+   wait for rendering and capture again. Do not use a physical-screen fallback.
 4. Capture a screenshot. Read only this frame for the next input. The display ID
    and dimensions are live values, not persistent constants.
 

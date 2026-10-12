@@ -1,0 +1,371 @@
+{
+  "date": "2026-10-12",
+  "platform": "Fresh Android 16 API 36 Google Play x86_64 emulator",
+  "execution": "Direct development-shell backend, not Shizuku host lifecycle",
+  "guestRamMB": 2048,
+  "cpuCores": 2,
+  "normal": {
+    "samples": [
+      {
+        "elapsedSeconds": 40.89,
+        "displayId": 3,
+        "state": "ON",
+        "frameSequence": 293,
+        "physical": {
+          "locked": false,
+          "physicalScreenOff": false,
+          "panels": [
+            {
+              "state": "ON",
+              "committedState": "ON"
+            }
+          ],
+          "inputFocusedDisplay": 0,
+          "windowFocusedDisplay": 0
+        },
+        "frameSha256": "3fc2649e7e573c136fe7ef5bac2969ab0ae53a969916c56058bbfb9fc806c206",
+        "fixtureClock": 814
+      },
+      {
+        "elapsedSeconds": 57.7,
+        "displayId": 3,
+        "state": "ON",
+        "frameSequence": 343,
+        "physical": {
+          "locked": false,
+          "physicalScreenOff": false,
+          "panels": [
+            {
+              "state": "ON",
+              "committedState": "ON"
+            }
+          ],
+          "inputFocusedDisplay": 0,
+          "windowFocusedDisplay": 0
+        },
+        "frameSha256": "c6d3d7d01c74f96a6c6fbe88a391b1f0449fa79d51400ed20a72a4825d9f5eb8",
+        "fixtureClock": 831
+      },
+      {
+        "elapsedSeconds": 74.56,
+        "displayId": 3,
+        "state": "ON",
+        "frameSequence": 393,
+        "physical": {
+          "locked": false,
+          "physicalScreenOff": false,
+          "panels": [
+            {
+              "state": "ON",
+              "committedState": "ON"
+            }
+          ],
+          "inputFocusedDisplay": 0,
+          "windowFocusedDisplay": 0
+        },
+        "frameSha256": "54ce8a0e1f17ab56ae909bdba954d7feed92d0fe76decaffa82e5f75c84d4543",
+        "fixtureClock": 848
+      },
+      {
+        "elapsedSeconds": 91.31,
+        "displayId": 3,
+        "state": "ON",
+        "frameSequence": 443,
+        "physical": {
+          "locked": false,
+          "physicalScreenOff": false,
+          "panels": [
+            {
+              "state": "ON",
+              "committedState": "ON"
+            }
+          ],
+          "inputFocusedDisplay": 0,
+          "windowFocusedDisplay": 0
+        },
+        "frameSha256": "4b25fec18b4feecba632385f0d342809fbd8846b0c101fd997ac6807d00ca000",
+        "fixtureClock": 864
+      },
+      {
+        "elapsedSeconds": 108.0,
+        "displayId": 3,
+        "state": "ON",
+        "frameSequence": 493,
+        "physical": {
+          "locked": false,
+          "physicalScreenOff": false,
+          "panels": [
+            {
+              "state": "ON",
+              "committedState": "ON"
+            }
+          ],
+          "inputFocusedDisplay": 0,
+          "windowFocusedDisplay": 0
+        },
+        "frameSha256": "63bc7ab4877add6fb43534ee8b8c64d623a540901cf4af06a455034dc8e2532c",
+        "fixtureClock": 881
+      },
+      {
+        "elapsedSeconds": 124.56,
+        "displayId": 3,
+        "state": "ON",
+        "frameSequence": 542,
+        "physical": {
+          "locked": false,
+          "physicalScreenOff": false,
+          "panels": [
+            {
+              "state": "ON",
+              "committedState": "ON"
+            }
+          ],
+          "inputFocusedDisplay": 0,
+          "windowFocusedDisplay": 0
+        },
+        "frameSha256": "f302588e247bc1a9e251347af7115b824dec07a91d52a5393add582eae018db1",
+        "fixtureClock": 897
+      },
+      {
+        "elapsedSeconds": 132.36,
+        "displayId": 3,
+        "state": "ON",
+        "frameSequence": 566,
+        "physical": {
+          "locked": false,
+          "physicalScreenOff": false,
+          "panels": [
+            {
+              "state": "ON",
+              "committedState": "ON"
+            }
+          ],
+          "inputFocusedDisplay": 0,
+          "windowFocusedDisplay": 0
+        },
+        "frameSha256": "65d12b9d05f6fab9ebd662a1702397b690104aa3e8637fedfe69c8183740b37d",
+        "fixtureClock": 905
+      }
+    ],
+    "checks": [
+      {
+        "test": "real-frame-and-focus",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "test": "targeted-ascii-text",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "test": "targeted-delete",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "test": "targeted-tap",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "test": "targeted-long-press",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "test": "targeted-scroll",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "test": "physical-focus-retained-after-actions",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "test": "repeated-scaled-jpeg",
+        "passed": true,
+        "detail": {
+          "captures": 12,
+          "meanMs": 346.33,
+          "maxMs": 375.0
+        }
+      },
+      {
+        "test": "sampled-rendering-and-power",
+        "passed": true,
+        "detail": {
+          "samples": 7,
+          "durationSeconds": 90
+        }
+      }
+    ],
+    "ok": true
+  },
+  "locked": {
+    "samples": [
+      {
+        "elapsedSeconds": 22.84,
+        "displayId": 3,
+        "state": "ON",
+        "frameSequence": 1210,
+        "physical": {
+          "locked": true,
+          "physicalScreenOff": true,
+          "panels": [
+            {
+              "state": "OFF",
+              "committedState": "OFF"
+            }
+          ],
+          "inputFocusedDisplay": 0,
+          "windowFocusedDisplay": 0
+        },
+        "frameSha256": "d8040920b14b6334fae2c059d8b7d07dcc7ac37919e5be8210b14858b244022b",
+        "fixtureClock": 1040
+      },
+      {
+        "elapsedSeconds": 40.69,
+        "displayId": 3,
+        "state": "ON",
+        "frameSequence": 1263,
+        "physical": {
+          "locked": true,
+          "physicalScreenOff": true,
+          "panels": [
+            {
+              "state": "OFF",
+              "committedState": "OFF"
+            }
+          ],
+          "inputFocusedDisplay": 0,
+          "windowFocusedDisplay": 0
+        },
+        "frameSha256": "23067c9cbc438b0e270823e7b225589a184b7cdbacfcd4d6766e035938f4a5d4",
+        "fixtureClock": 1058
+      },
+      {
+        "elapsedSeconds": 59.73,
+        "displayId": 3,
+        "state": "ON",
+        "frameSequence": 1320,
+        "physical": {
+          "locked": true,
+          "physicalScreenOff": true,
+          "panels": [
+            {
+              "state": "OFF",
+              "committedState": "OFF"
+            }
+          ],
+          "inputFocusedDisplay": 0,
+          "windowFocusedDisplay": 0
+        },
+        "frameSha256": "7434c4ecad6ab7f395ef74c351696086b3060b032dd0ef6aaa6d1a12a852dcd1",
+        "fixtureClock": 1077
+      },
+      {
+        "elapsedSeconds": 79.19,
+        "displayId": 3,
+        "state": "ON",
+        "frameSequence": 1378,
+        "physical": {
+          "locked": true,
+          "physicalScreenOff": true,
+          "panels": [
+            {
+              "state": "OFF",
+              "committedState": "OFF"
+            }
+          ],
+          "inputFocusedDisplay": 0,
+          "windowFocusedDisplay": 0
+        },
+        "frameSha256": "3a268d855f81cfad87b386620a3f03fda1827fed1a3698bea90296e749f2604a",
+        "fixtureClock": 1097
+      },
+      {
+        "elapsedSeconds": 96.22,
+        "displayId": 3,
+        "state": "ON",
+        "frameSequence": 1429,
+        "physical": {
+          "locked": true,
+          "physicalScreenOff": true,
+          "panels": [
+            {
+              "state": "OFF",
+              "committedState": "OFF"
+            }
+          ],
+          "inputFocusedDisplay": 0,
+          "windowFocusedDisplay": 0
+        },
+        "frameSha256": "20ef0d19ba91a7c357dc653aba4d5d2382116868fc02ec65fb48a1c576f9e57d",
+        "fixtureClock": 1114
+      }
+    ],
+    "plannedDurationSeconds": 330,
+    "interruptedReason": "Host available RAM fell below the 2 GB safety floor; test emulator stopped",
+    "completed": false,
+    "checks": [
+      {
+        "test": "real-frame-and-focus",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "test": "targeted-ascii-text",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "test": "targeted-delete",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "test": "targeted-tap",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "test": "targeted-long-press",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "test": "targeted-scroll",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "test": "physical-focus-retained-after-actions",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "test": "repeated-scaled-jpeg",
+        "passed": true,
+        "detail": {
+          "captures": 12,
+          "meanMs": 316.42,
+          "maxMs": 344.0
+        }
+      }
+    ]
+  },
+  "fixtureRegression": {
+    "samples": 20,
+    "backResumedPreviousFixture": true,
+    "hiddenFixtureOverwritePrevented": true
+  },
+  "cleanup": {
+    "ownershipMarkerRemoved": true,
+    "emulatorStopped": true,
+    "running": false,
+    "displayWakeLock": false,
+    "activeAssociations": 0
+  }
+}

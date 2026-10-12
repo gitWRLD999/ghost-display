@@ -110,6 +110,10 @@ class GhostActuator:
                     return destination.getvalue()
             try:
                 jpeg = await asyncio.to_thread(encode_jpeg)
+            except asyncio.CancelledError:
+                # No frame reached the caller, so it cannot authorize input.
+                self.session.observed = None
+                raise
             except Exception as exc:
                 self.session.observed = None
                 raise GhostError("Ghost frame could not be decoded") from exc

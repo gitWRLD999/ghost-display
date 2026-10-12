@@ -117,7 +117,19 @@ public class GhostTestActivity extends Activity {
     root.addView(scroll, new LinearLayout.LayoutParams(-1, 0, 1));
     setContentView(root);
     input.requestFocus();
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    timer.removeCallbacks(tick);
     timer.post(tick);
+  }
+
+  @Override
+  protected void onPause() {
+    timer.removeCallbacks(tick);
+    super.onPause();
   }
 
   @Override

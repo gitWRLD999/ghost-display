@@ -1,0 +1,33 @@
+name: Agent adapter checks
+
+on:
+  push:
+    branches: [main, 'codex/**']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out Ghost
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          path: ghost-project
+      - name: Check out the audited Artemis contract
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: google/artemis
+          ref: 351ca8422f7b5b54e80a9c1ce03a222e02415b6b
+          path: artemis-upstream
+          persist-credentials: false
+      - name: Install lightweight test dependencies
+        run: python3 -m pip install -r ghost-project/integrations/artemis/requirements-test.txt
+      - name: Test adapter and pinned upstream contract
+        run: python3 -m unittest discover -s ghost-project/integrations/artemis/tests -v
+      - name: Test device diagnostic parsers
+        run: python3 -m unittest discover -s ghost-project/scripts/tests -v
